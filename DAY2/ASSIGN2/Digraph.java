@@ -1,0 +1,26 @@
+import java.io.*; 
+public class Digraph
+{
+private final int V;
+private final Bag<Integer>[] adj;
+
+public Digraph(int V)
+{
+this.V = V;
+adj = (Bag<Integer>[]) new Bag[V];
+for (int v = 0; v < V; v++)
+adj[v] = new Bag<Integer>();
+}
+
+public void addEdge(int v, int w){
+    adj[v].add(w);
+}
+
+public Iterable<Integer> adj(int v){
+    return adj[v]; 
+}
+// public static void main(String[] args) throws IOException {
+//      Digraph obj=new Digraph(5);
+//      obj.addEdge(1,2);
+// }
+}

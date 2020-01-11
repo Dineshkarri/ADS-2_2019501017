@@ -11,7 +11,7 @@ public class WordNet {
       String i; 
      while ((i=br.readLine()) != null) {
          String arr1[] =i.split(","); 
-         System.out.println(arr1);
+         System.out.println(arr1[0]);
       }
    }
 
