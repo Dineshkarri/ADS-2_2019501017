@@ -1,8 +1,10 @@
 import java.io.*; 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 public class WordNet {
    int c = 0;
-   int counte = 0;
-   public WordNet(String synsets, String hypernyms) throws IOException{
+   int count = 0;
+   public WordNet(String hypernyms) throws IOException{
       // parseSynset(synsets);
       parseHypernyms(hypernyms);
       
@@ -32,25 +34,24 @@ public class WordNet {
       //System.out.println("jkacbns");
       Digraph g = new Digraph(c); 
       while ((j=br.readLine()) != null) {
-         System.out.println("ljaskn .cl");
          String arr2[] =j.split(",");
-         System.out.println(arr2.length);
+         //System.out.println(arr2.length);
          for (int i = 1; i < arr2.length; i++){
             g.addEdge(Integer.parseInt(arr2[0]),Integer.parseInt(arr2[i]));
             
          }
       }
-      // for(int i = 0; i < c; i++){
-      //    for(int w : g.adj[i]){
-      //       counte++;
-      //    }
-      // }
-      System.out.println(c);
-      System.out.println(counte);
+      for(int i = 0; i < c; i++){
+         for(int y : g.adj[i]){
+            count++;
+         }
+      }
       br.close();
+      System.out.println(c);
+      System.out.println(count);
    }
    public static void main(String[] args) throws IOException {
-      WordNet object = new WordNet("synsets", "hypernyms");
+      WordNet object = new WordNet("hypernyms");
       
    }      
 }
